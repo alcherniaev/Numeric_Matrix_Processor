@@ -1,1 +1,3 @@
-print('Hello, world!')
+n, m = input().split()
+
+print(n)
