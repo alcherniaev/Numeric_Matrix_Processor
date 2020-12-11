@@ -25,12 +25,11 @@ def multiply_by_const():
     n, m = map(int, input().split())
     matrix = [list(map(int, input().split())) for j in range(n)]
     x = int(input())
-    #matrix_by_x = [x * m_ for row in matrix for m_ in row]
     matrix_by_x = [[0 for i in range(m)] for j in range(n)]
     for i in range(n):
         for j in range(m):
             matrix_by_x[i][j] = x * matrix[i][j]
     for i in matrix_by_x:
         print(*i)
-multiply_by_const()
+
 
