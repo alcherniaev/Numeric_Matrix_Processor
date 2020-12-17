@@ -4,5 +4,8 @@ files:
   visible: true
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/7254#comment
-status: Failed
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 17 Dec 2020 18:35:57 UTC
 record: -1
