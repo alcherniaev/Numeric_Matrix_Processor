@@ -87,12 +87,13 @@ def menu():
 
 choice = menu()
 
-#while choice != 0:
-if choice == 1:
-    sum_matrix()
-elif choice == 2:
-    multiply_by_const()
-elif choice == 3:
-    multiply_by_matrix()
-elif choice == 0:
-    pass
+while choice != 0:
+    if choice == 1:
+        sum_matrix()
+    elif choice == 2:
+        multiply_by_const()
+    elif choice == 3:
+        multiply_by_matrix()
+    elif choice == 0:
+        pass
+    choice = menu()

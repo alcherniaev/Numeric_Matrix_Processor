@@ -282,15 +282,8 @@ files:
         CalcTest("processor.processor").run_tests()
   learner_created: false
 feedback_link: https://hyperskill.org/projects/96/stages/530/implement#comment
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Exception in test #1
-
-    Traceback (most recent call last):
-      File "processor.py", line 71
-        matrix_2.append(list(map(float input('> ').split())))
-                                       ^
-    SyntaxError: invalid syntax
-  time: Fri, 18 Dec 2020 18:52:39 UTC
+  message: Congratulations!
+  time: Fri, 18 Dec 2020 18:57:51 UTC
 record: -1
