@@ -281,19 +281,16 @@ files:
     if __name__ == '__main__':
         CalcTest("processor.processor").run_tests()
   learner_created: false
-- name: processor/__init__.py
-  visible: true
-  learner_created: true
 feedback_link: https://hyperskill.org/projects/96/stages/530/implement#comment
 status: Failed
 feedback:
-  message: "Exception in test #2\n\nTraceback (most recent call last):\n  File \"\
-    processor.py\", line 92, in <module>\n    sum_matrix()\n  File \"processor.py\"\
-    , line 10, in sum_matrix\n    matrix_1.append(list(map(int, input('> ').split())))\n\
-    ValueError: invalid literal for int() with base 10: '-0.3'\n\nPlease find below\
-    \ the output of your program during this failed test.\nNote that the '>' character\
-    \ indicates the beginning of the input line.\n\n---\n\n1. Add matrices\n2. Multiply\
-    \ matrix by a constant\n3. Multiply matrices\nYour choice: > > 1\nEnter size of\
-    \ first matrix: > > 4 4\nEnter first matrix: \n> > -0.3 677.4 435.2 123.33"
-  time: Fri, 18 Dec 2020 18:46:32 UTC
+  message: |-
+    Exception in test #1
+
+    Traceback (most recent call last):
+      File "processor.py", line 71
+        matrix_2.append(list(map(float input('> ').split())))
+                                       ^
+    SyntaxError: invalid syntax
+  time: Fri, 18 Dec 2020 18:52:39 UTC
 record: -1

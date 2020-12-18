@@ -68,7 +68,7 @@ def multiply_by_matrix():
     # constructing second matrix from input
     print('Enter second matrix: ')
     for i in range(n_1):
-        matrix_2.append(list(map(float input('> ').split())))
+        matrix_2.append(list(map(float, input('> ').split())))
     if len(matrix_1[0]) != len(matrix_2):
         return None
     new_matrix = [[sum([a * b for a, b in zip(A_row, B_col)]) for B_col in zip(*matrix_2)] for A_row in matrix_1]
