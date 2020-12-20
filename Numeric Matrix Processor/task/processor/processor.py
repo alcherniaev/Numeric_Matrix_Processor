@@ -77,6 +77,9 @@ def multiply_by_matrix():
         print(*i)
     return None
 
+def transpose_matrix():
+    pass
+
 
 def menu():
     print("1. Add matrices")
@@ -94,6 +97,8 @@ while choice != 0:
         multiply_by_const()
     elif choice == 3:
         multiply_by_matrix()
+    elif choice == 4:
+        transpose_matrix()
     elif choice == 0:
         pass
     choice = menu()
