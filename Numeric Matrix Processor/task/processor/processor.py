@@ -77,14 +77,23 @@ def multiply_by_matrix():
         print(*i)
     return None
 
-def transpose_matrix():
-    pass
-
+def transpose_main_diagonal():
+    # getting size, matrix and constant from input
+    n, m = map(int, input('Enter size of matrix: > ').split())
+    matrix = [list(map(float, input('Enter matrix: ').split())) for j in range(n)]
+    return [x for x in zip(*matrix)]
 
 def menu():
     print("1. Add matrices")
     print("2. Multiply matrix by a constant")
     print("3. Multiply matrices")
+    return int(input("Your choice: > "))
+
+def menu_transpose():
+    print("1. Main diagonal")
+    print("2. Side diagonal")
+    print("3. Vertical line")
+    print("4. Horizontal line")
     return int(input("Your choice: > "))
 
 
@@ -98,7 +107,17 @@ while choice != 0:
     elif choice == 3:
         multiply_by_matrix()
     elif choice == 4:
-        transpose_matrix()
+        menu_transpose()
     elif choice == 0:
         pass
     choice = menu()
+
+choice_transpose = menu_transpose()
+if choice_transpose == 1:
+    transpose_main_diagonal()
+elif choice_transpose == 2:
+    pass
+elif choice_transpose == 3:
+    pass
+elif choice_transpose == 4:
+    pass
