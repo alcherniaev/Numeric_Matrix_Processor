@@ -77,24 +77,95 @@ def multiply_by_matrix():
         print(*i)
     return None
 
-def transpose_main_diagonal():
+
+def transpose_main_diagonal(matrix):
     # getting size, matrix and constant from input
-    n, m = map(int, input('Enter size of matrix: > ').split())
-    matrix = [list(map(float, input('Enter matrix: ').split())) for j in range(n)]
+    '''n, m = map(int, input('Enter size of matrix: > ').split())
+    print('Enter first matrix: ')
+    matrix = [list(map(int, input('> ').split())) for j in range(n)]'''
+    print('The result is:')
+    for row in [x for x in zip(*matrix)]:
+        print(*row)
     return [x for x in zip(*matrix)]
+
+
+def transpose_side_diagonal(matrix):
+    # getting size, matrix and constant from input
+    '''n, m = map(int, input('Enter size of matrix: > ').split())
+    print('Enter first matrix: ')
+    matrix = [list(map(int, input('> ').split())) for j in range(n)]'''
+    print('The result is:')
+    #m = [transpose_horizontal_diagonal(transpose_vertical_diagonal(transpose_main_diagonal(matrix)))]
+    main_ = [x for x in zip(*matrix)]
+    vert_ = [[a for a in A_row[::-1]] for A_row in main_]
+    horz_ = [A_row for A_row in vert_[::-1]]
+    for row in horz_:
+        print(*row)
+    return None
+
+
+def transpose_horizontal_diagonal(matrix):
+    # getting size, matrix and constant from input
+    '''n, m = map(int, input('Enter size of matrix: > ').split())
+    print('Enter first matrix: ')
+    matrix = [list(map(int, input('> ').split())) for j in range(n)]'''
+    print('The result is:')
+    horz_ = [A_row for A_row in matrix[::-1]]
+    for row in horz_:
+        print(*row)
+    return [A_row for A_row in matrix[::-1]]
+
+
+def transpose_vertical_diagonal(matrix):
+    # getting size, matrix and constant from input
+    '''n, m = map(int, input('Enter size of matrix: > ').split())
+    print('Enter first matrix: ')
+    matrix = [list(map(int, input('> ').split())) for j in range(n)]'''
+    print('The result is:')
+    for row in [[a for a in A_row[::-1]] for A_row in matrix]:
+        print(*row)
+    return [[a for a in A_row[::-1]] for A_row in matrix]
+
+
 
 def menu():
     print("1. Add matrices")
     print("2. Multiply matrix by a constant")
     print("3. Multiply matrices")
+    print("4. Transpose matrix")
+    print("0. Exit")
     return int(input("Your choice: > "))
+
+
+def get_matrix(name=""):
+    name = name if name == "" else name + " "
+    input_str = input("Enter size of " + name + "matrix: > ")
+    if input_str == "1":
+        a_n = a_m = 1
+    else:
+        a_n, a_m = map(int, input_str.split())
+    matrix = list()
+    print("Enter matrix:")
+    for i in range(a_n):
+        matrix.append(list(map(float, input("> ").split())))
+    return matrix
+
+
 
 def menu_transpose():
     print("1. Main diagonal")
     print("2. Side diagonal")
     print("3. Vertical line")
     print("4. Horizontal line")
-    return int(input("Your choice: > "))
+    choice_t = int(input("Your choice: > "))
+    if choice_t == 1:
+        transpose_main_diagonal(get_matrix())
+    elif choice_t == 2:
+        transpose_side_diagonal(get_matrix())
+    elif choice_t == 3:
+        transpose_vertical_diagonal(get_matrix())
+    elif choice_t == 4:
+        transpose_horizontal_diagonal(get_matrix())
 
 
 choice = menu()
@@ -111,13 +182,3 @@ while choice != 0:
     elif choice == 0:
         pass
     choice = menu()
-
-choice_transpose = menu_transpose()
-if choice_transpose == 1:
-    transpose_main_diagonal()
-elif choice_transpose == 2:
-    pass
-elif choice_transpose == 3:
-    pass
-elif choice_transpose == 4:
-    pass
