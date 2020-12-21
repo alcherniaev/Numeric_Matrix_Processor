@@ -1,9 +1,13 @@
-#B_col in zip(*matrix_2)
+def foo(numbers):
+    counter1 = 0
+    counter2 = 0
 
-a = [[1, 7, 7], [6, 6, 4], [4, 2, 1]]
+    for num in numbers:
+        if num % 2 == 0:
+            counter1 += num if num < 4 else -num
+        else:
+            counter2 += num if num < 5 else -num
 
-b = [x for x in zip(*a)]
-c = [x for x in zip(*a[::-1])]
+    return counter1 * counter2
+a = foo([3, 4, 2, 1, 5, 7])
 print(a)
-print([x for x in zip(*a)])
-print(c)
