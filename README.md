@@ -1,5 +1,5 @@
 # Project: Numeric Matrix Processor
-
+Project created doing tutorials on JetBrains Academy.
 ## About
 Here’s a project for devoted matrix enthusiasts: learn to perform a variety of operations on matrices including addition, multiplication, finding the determinant, and dealing with inverse matrices.
 
