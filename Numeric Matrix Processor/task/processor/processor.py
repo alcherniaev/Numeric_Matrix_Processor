@@ -77,7 +77,7 @@ def multiply_by_matrix():
         print(*i)
     return None
 
-
+# matrix transpose by different diagonals
 def transpose_main_diagonal(matrix):
     # getting size, matrix and constant from input
     '''n, m = map(int, input('Enter size of matrix: > ').split())
@@ -127,12 +127,12 @@ def transpose_vertical_diagonal(matrix):
     return [[a for a in A_row[::-1]] for A_row in matrix]
 
 
-
 def menu():
     print("1. Add matrices")
     print("2. Multiply matrix by a constant")
     print("3. Multiply matrices")
     print("4. Transpose matrix")
+    print("5. Calculate a determinant")
     print("0. Exit")
     return int(input("Your choice: > "))
 
@@ -168,14 +168,24 @@ def menu_transpose():
         transpose_horizontal_diagonal(get_matrix())
 
 
-def determinant():
-    matrix = get_matrix()
+# Calculate a determinant
+def pre_determinant():
+    determinant(get_matrix())
+
+
+def determinant(matrix):
     if len(matrix) == len(matrix[0]) == 1:
         return matrix[0][0]
     if len(matrix) == len(matrix[0]) == 2:
-        return matrix[0][0] * matrix[1][1] - matrix[1][0] * matrix[0][1]
+        return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
     det = 0
-    
+    for i in range(len(matrix)):
+        det += (-1) ** i * matrix[0][i] * determinant(
+            [[matrix[x][y] for y in range(len(matrix)) if y != i] for x in range(1, len(matrix))]
+        )
+    print('The result is:')
+    print(det)
+
 
 choice = menu()
 
@@ -188,6 +198,8 @@ while choice != 0:
         multiply_by_matrix()
     elif choice == 4:
         menu_transpose()
+    elif choice == 5:
+        pre_determinant()
     elif choice == 0:
         pass
     choice = menu()
