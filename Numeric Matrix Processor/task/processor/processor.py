@@ -177,6 +177,15 @@ def pre_determinant():
     print('')
 
 
+def cofactor_matrix(matrix):
+    matrix = [[0 for x in range(len(matrix))] for y in range(len(matrix))]
+
+    for i in range(len(matrix)):
+        for j in range(len(matrix)):
+            matrix[i][j] = (-1) ** (i + j) * determinant([[matrix[k][l] for l in range(len(matrix)) if l != j] for k in range(len(matrix)) if k != i])
+    return matrix
+
+
 def determinant(matrix):
     if len(matrix) == len(matrix[0]) == 1:
         return matrix[0][0]
@@ -191,7 +200,13 @@ def determinant(matrix):
 
 
 def inverse_matrix():
-    pass
+    matrix = get_matrix()
+    det = determinant(matrix)
+    if det == 0:
+        print("This matrix doesn't have an inverse.")
+    else:
+        result = cofactor_matrix(matrix)
+        result = transpose_main_diagonal
 
 
 choice = menu()
