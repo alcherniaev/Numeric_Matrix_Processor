@@ -507,6 +507,23 @@ files:
     if __name__ == '__main__':
         CalcTest("processor.processor").run_tests()
   learner_created: false
+- name: processor/test.py
+  visible: true
+  text: |
+    def foo(numbers):
+        counter1 = 0
+        counter2 = 0
+
+        for num in numbers:
+            if num % 2 == 0:
+                counter1 += num if num < 4 else -num
+            else:
+                counter2 += num if num < 5 else -num
+
+        return counter1 * counter2
+    a = foo([3, 4, 2, 1, 5, 7])
+    print(a)
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/96/stages/532/implement#comment
 status: Unchecked
 record: -1

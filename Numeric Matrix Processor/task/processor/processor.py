@@ -168,6 +168,15 @@ def menu_transpose():
         transpose_horizontal_diagonal(get_matrix())
 
 
+def determinant():
+    matrix = get_matrix()
+    if len(matrix) == len(matrix[0]) == 1:
+        return matrix[0][0]
+    if len(matrix) == len(matrix[0]) == 2:
+        return matrix[0][0] * matrix[1][1] - matrix[1][0] * matrix[0][1]
+    det = 0
+    
+
 choice = menu()
 
 while choice != 0:
