@@ -133,6 +133,7 @@ def menu():
     print("3. Multiply matrices")
     print("4. Transpose matrix")
     print("5. Calculate a determinant")
+    print('6. Inverse matrix')
     print("0. Exit")
     return int(input("Your choice: > "))
 
@@ -176,8 +177,6 @@ def pre_determinant():
     print('')
 
 
-
-
 def determinant(matrix):
     if len(matrix) == len(matrix[0]) == 1:
         return matrix[0][0]
@@ -189,6 +188,10 @@ def determinant(matrix):
             [[matrix[x][y] for y in range(len(matrix)) if y != i] for x in range(1, len(matrix))]
         )
     return det
+
+
+def inverse_matrix():
+    pass
 
 
 choice = menu()
@@ -204,6 +207,8 @@ while choice != 0:
         menu_transpose()
     elif choice == 5:
         pre_determinant()
+    elif choice == 6:
+        inverse_matrix()
     elif choice == 0:
         pass
     choice = menu()
