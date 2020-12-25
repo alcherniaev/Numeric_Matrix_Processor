@@ -170,7 +170,12 @@ def menu_transpose():
 
 # Calculate a determinant
 def pre_determinant():
-    determinant(get_matrix())
+    det = determinant(get_matrix())
+    print('The result is:')
+    print(det)
+    print('')
+
+
 
 
 def determinant(matrix):
@@ -183,8 +188,7 @@ def determinant(matrix):
         det += (-1) ** i * matrix[0][i] * determinant(
             [[matrix[x][y] for y in range(len(matrix)) if y != i] for x in range(1, len(matrix))]
         )
-    print('The result is:')
-    print(det)
+    return det
 
 
 choice = menu()

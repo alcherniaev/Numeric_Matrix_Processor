@@ -525,31 +525,8 @@ files:
     print(a)
   learner_created: true
 feedback_link: https://hyperskill.org/projects/96/stages/532/implement#comment
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Exception in test #1
-
-    Traceback (most recent call last):
-      File "processor.py", line 185, in <module>
-        choice = menu()
-      File "processor.py", line 137, in menu
-        return int(input("Your choice: > "))
-    ValueError: invalid literal for int() with base 10: '3 4 55'
-
-    Please find below the output of your program during this failed test.
-    Note that the '>' character indicates the beginning of the input line.
-
-    ---
-
-    Enter size of matrix: > > 1
-    Enter matrix:
-    > > 3 3
-    1. Add matrices
-    2. Multiply matrix by a constant
-    3. Multiply matrices
-    4. Transpose matrix
-    0. Exit
-    Your choice: > > 3 4 55
-  time: Fri, 25 Dec 2020 15:39:34 UTC
+  message: Congratulations!
+  time: Fri, 25 Dec 2020 16:28:37 UTC
 record: -1
