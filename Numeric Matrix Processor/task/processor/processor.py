@@ -77,15 +77,23 @@ def multiply_by_matrix():
         print(*i)
     return None
 
+
+def print_main_diag():
+    matrix = transpose_main_diagonal()
+    print('The result is:')
+    for row in [x for x in zip(*matrix)]:
+        print(*row)
+
 # matrix transpose by different diagonals
-def transpose_main_diagonal(matrix):
+def transpose_main_diagonal():
+    matrix = get_matrix()
     # getting size, matrix and constant from input
     '''n, m = map(int, input('Enter size of matrix: > ').split())
     print('Enter first matrix: ')
     matrix = [list(map(int, input('> ').split())) for j in range(n)]'''
-    print('The result is:')
-    for row in [x for x in zip(*matrix)]:
-        print(*row)
+#    print('The result is:')
+#    for row in [x for x in zip(*matrix)]:
+#        print(*row)
     return [x for x in zip(*matrix)]
 
 
@@ -160,7 +168,7 @@ def menu_transpose():
     print("4. Horizontal line")
     choice_t = int(input("Your choice: > "))
     if choice_t == 1:
-        transpose_main_diagonal(get_matrix())
+        print_main_diag()
     elif choice_t == 2:
         transpose_side_diagonal(get_matrix())
     elif choice_t == 3:
@@ -178,12 +186,12 @@ def pre_determinant():
 
 
 def cofactor_matrix(matrix):
-    matrix = [[0 for x in range(len(matrix))] for y in range(len(matrix))]
+    matrix_ = [[0 for x in range(len(matrix))] for y in range(len(matrix))]
 
     for i in range(len(matrix)):
         for j in range(len(matrix)):
-            matrix[i][j] = (-1) ** (i + j) * determinant([[matrix[k][l] for l in range(len(matrix)) if l != j] for k in range(len(matrix)) if k != i])
-    return matrix
+            matrix_[i][j] = (-1) ** (i + j) * determinant([[matrix[k][l] for l in range(len(matrix)) if l != j] for k in range(len(matrix)) if k != i])
+    return matrix_
 
 
 def determinant(matrix):
@@ -199,6 +207,10 @@ def determinant(matrix):
     return det
 
 
+def mult_axlr_const(matrix, const):
+    return [[const * a for a in matrix_row] for matrix_row in matrix]
+
+
 def inverse_matrix():
     matrix = get_matrix()
     det = determinant(matrix)
@@ -206,7 +218,14 @@ def inverse_matrix():
         print("This matrix doesn't have an inverse.")
     else:
         result = cofactor_matrix(matrix)
-        result = transpose_main_diagonal
+        result = transpose_main_diagonal(result)
+        result = mult_axlr_const(result, 1/det)
+    print('The result is:')
+    out_mtrx = []
+    for row in result:
+        out_mtrx.append(round(row, 2))
+    print(*out_mtrx)
+    print('')
 
 
 choice = menu()
